@@ -1,0 +1,15 @@
+We release two Linux scripts for creating the lexicons:
+• getdumps.sh, which fetches the latest version of Wikipedia dumps for 282 languages
+• convert.sh, which converts Wikipedia dumps into tokenized versions, one sentence per line, and then converts that sentencized version into a weighted lexicon.
+
+The Linux commands used by these shells are : wget, sleep, bzcat, bzip2, egrep, gawk, echo, date, tr, cat, sort, and uniq. 
+
+The gawk programs used by these scripts are:
+• dewiki.awk, removes Wikipedia and metadata from the Wikipedia dump, retaining Wikipedia text, titles, categories, and redirects
+• UnSGML.awk, translates SMGL-marked accents and special characeters into UTF-8
+• sentencize.awk, tokenizes and rewrites input text with one sentence per output line, with spaces around each word.
+• detectEnglish.awk, removes a line that contains three English words in a row (English lexicon included in the program source).
+
+See Grefenstette, Gregory. "Extracting weighted language lexicons from Wikipedia." In Proceedings of the Tenth International Conference on Language Resources and Evaluation (LREC 2016), pp. 1365-1368. 2016.
+
+Available at https://pdfs.semanticscholar.org/29b2/b0076f9d361baf94199dea45bba5d7364026.pdf
